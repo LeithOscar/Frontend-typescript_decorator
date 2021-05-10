@@ -10,6 +10,7 @@ export class AppComponent {
   public title = 'demo';
   public readonly discount = 20;
   private discountToApply: Discount = null;
+
     constructor() {
 
       
@@ -20,5 +21,10 @@ export class AppComponent {
     public getDefaultDiscount(): number {
       return this.discountToApply.getDefaultDiscount;
     }
+
+    public getLiteral(): string{
+     return this.discountToApply.getLiteral();
+    }
+   
 
 }

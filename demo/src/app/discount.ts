@@ -1,4 +1,4 @@
-import { decoratedParam as isYoungDecorated} from "./decorator";
+import { decoratedFestucTimeParam , DecoratedProperty, methodTypeToApplyDecorated} from "./decorator";
 
 export class Discount{
 
@@ -8,16 +8,14 @@ export class Discount{
        Por sí mismos, su eficacia es limitada.
       El registro de datos de propiedades parece ser el mejor uso para un decorador de propiedades por sí solo.
     */
-    //@DecoratedProperty(35) // decorator for property
+    @DecoratedProperty(25) // decorator for property
     defaultPercentage: number;
 
-    //@DecoratedProperty(55) // decorator not work here
-    otherVal: number;
-    
+
     //2
     // parameter decorator
-    //no sé porque no es capaz de enviar el 'name' de la propiedad
-    constructor(@isYoungDecorated(true) percentage:number) {
+    //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
+    constructor(@decoratedFestucTimeParam(false) percentage:number) {
         this.defaultPercentage = percentage;
        
     }
@@ -27,7 +25,14 @@ export class Discount{
         return  this.getDefault(Discount,undefined,0);
     }
 
-    private getDefault(target:object,name:any,index:number):number{
-            return Reflect.getMetadata(`case_${index}`, target, name) === undefined? this.defaultPercentage: Reflect.getMetadata(`case_${index}`, target, name) ;
+    @methodTypeToApplyDecorated("%")
+    public getLiteral(): string {
+      return  "of discount";
     }
+
+
+    /*-- lo unico que me queda por resolver*/
+    private getDefault(target:object,name:any,index:number):number{
+      return Reflect.getMetadata(`case_${index}`, target, name) === undefined? this.defaultPercentage: Reflect.getMetadata(`case_${index}`, target, name) ;
+}
 }
