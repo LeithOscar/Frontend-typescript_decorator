@@ -44,18 +44,14 @@ const requiredMetadataKey = Symbol("required");
   para la función constructora viene como undefineden 
   Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
 */
-export  function decoratedParam(isYooung:boolean) {
+export  function decoratedParam(isYoung:boolean) {
  return (target: Object, propertyKey: string, parameterIndex: number)=> {
     console.log('Nombre del metodo', propertyKey);
     console.log('Clase', target);
     console.log('Posicion del parámetro', parameterIndex);
 
-    if(isYooung)
-    {
-      Reflect.defineMetadata(`case_${parameterIndex}`,35,target);
-    }else{
-      Reflect.defineMetadata(`case_${parameterIndex}`,propertyKey,target);
-    }
+
+    isYoung === true? Reflect.defineMetadata(`case_${parameterIndex}`,35,target): Reflect.defineMetadata(`case_${parameterIndex}`,propertyKey,target);
   }
 }
 
