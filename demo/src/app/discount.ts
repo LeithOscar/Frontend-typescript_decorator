@@ -34,5 +34,5 @@ export class Discount{
     /*-- lo unico que me queda por resolver*/
     private getDefault(target:object,name:any,index:number):number{
       return Reflect.getMetadata(`case_${index}`, target, name) === undefined? this.defaultPercentage: Reflect.getMetadata(`case_${index}`, target, name) ;
-}
+  }
 }

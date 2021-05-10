@@ -6,7 +6,7 @@ import { Discount } from './discount';
   templateUrl: './app.component.html'
 })
 
-export class AppComponent {
+export class FestucComponent {
   public title = 'demo';
   public readonly discount = 20;
   private discountToApply: Discount = null;
