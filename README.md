@@ -35,9 +35,8 @@ export function methodDecorated(txt:string)
 Params
 ```python
 //Definition
-//Son más simples que los anteriores, un decorador de propiedades debe tomar como parámetros 
 //target, que es el prototipo de la clase
-// propertyKey, el nombre de la propiedad
+//propertyKey, el nombre de la propiedad
 //Finalmente los decoradores de parámetros, funcionan igual pero con el parámetro adicional parameterIndex
 
 
@@ -52,7 +51,7 @@ export  function decoratedParam(isYoung:boolean) {
 Property
 ```python
 //Definition
-//target is the object that owns the decorated property. target in the example is TargetDemo.
+//target, que es el prototipo de la clase object
 //propertyKey: string | symbol
 
 
