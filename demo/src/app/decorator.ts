@@ -1,3 +1,4 @@
+import "reflect-metadata";
 
 export function DecoratedProperty(val: number = 0) {
     // Scope the value to be reused
@@ -50,7 +51,7 @@ const isPromotionTime=()=>{
 
 
 
-import "reflect-metadata";
+
 /*
   para la función constructora viene como undefineden 
   Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
