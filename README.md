@@ -61,3 +61,8 @@ export function DecoratedProperty(val: number = 0) {
     }
 }
 ```
+
+## Wiki documentation
+
+Typescript decorator [Decorator](https://www.typescriptlang.org/docs/handbook/decorators.html).
+
