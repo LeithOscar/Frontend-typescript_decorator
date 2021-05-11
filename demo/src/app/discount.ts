@@ -26,7 +26,7 @@ export class Discount{
 
     @methodTypeToApplyDecorated("%")
     public getLiteral(): string {
-      return  "of discount";
+      return  " pistachio discount";
     }
 
 

@@ -1,5 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import { FestucComponent } from './app.component';
+import { FestucComponent } from './festuc.component';
 
 describe('AppComponent', () => {
   beforeEach(async () => {
@@ -28,4 +28,5 @@ describe('AppComponent', () => {
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain('demo app is running!');
   });
+
 });

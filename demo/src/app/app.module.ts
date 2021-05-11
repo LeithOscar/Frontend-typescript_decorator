@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { FestucComponent } from './app.component';
+import { FestucComponent } from './festuc/festuc.component';
 
 @NgModule({
   declarations: [

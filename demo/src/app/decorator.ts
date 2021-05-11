@@ -1,8 +1,8 @@
 import "reflect-metadata";
 
-export function DecoratedProperty(val: number = 0) {
+export function DecoratedProperty(val: any = 0) {
     // Scope the value to be reused
-    let value: number;
+    let value: any;
     /*
     target: any
     target is the object that owns the decorated property. target in the example is TargetDemo.
@@ -24,7 +24,7 @@ export function DecoratedProperty(val: number = 0) {
                     // Return the scoped value
                     return value;
                 },
-                set: (oldValue: number) => {
+                set: (oldValue: any) => {
                     // Update the scoped value with max(newValue, min)
                     value = (
                        isPromotionTime()
@@ -43,7 +43,7 @@ export function DecoratedProperty(val: number = 0) {
 }
 const isPromotionTime=()=>{ 
     var today =  new Date;
-    var startSeason =  new Date(today.getFullYear(), 11); //Febrero
+    var startSeason =  new Date(today.getFullYear(), 1); //Febrero
     var endSeason =  new Date(today.getFullYear(), 12); //sept
 
     return (today >= startSeason &&  today <= endSeason)? true: false;

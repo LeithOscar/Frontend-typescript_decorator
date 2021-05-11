@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { Discount } from './discount';
+import { Discount } from '../discount';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html'
+  templateUrl: './festuc.component.html'
 })
 
 export class FestucComponent {
@@ -11,11 +11,12 @@ export class FestucComponent {
   public readonly discount = 20;
   private discountToApply: Discount = null;
 
-    constructor() {
 
-      
+  public buyFestuc: string = 'https://www.amazon.es/s?k=pistachos&hvadid=80401819697355&hvbmt=bp&hvdev=c&hvqmt=p&tag=bingamazonest-21&ref=pd_sl_hb6wnxihe_p';
+  
+
+  constructor() {    
       this.discountToApply = new Discount(this.discount);
-
     }
 
     public getDefaultDiscount(): number {
@@ -25,6 +26,5 @@ export class FestucComponent {
     public getLiteral(): string{
      return this.discountToApply.getLiteral();
     }
-   
-
+ 
 }
