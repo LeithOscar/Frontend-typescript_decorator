@@ -20,7 +20,6 @@ export class Discount{
        
     }
 
-
     public get getDefaultDiscount(): number{
         return  this.getDefault(Discount,undefined,0);
     }
