@@ -1,8 +1,5 @@
 import "reflect-metadata";
 
-export function DecoratedProperty(val: any = 0) {
-    // Scope the value to be reused
-    let value: any;
     /*
     target: any
     target is the object that owns the decorated property. target in the example is TargetDemo.
@@ -10,16 +7,14 @@ export function DecoratedProperty(val: any = 0) {
     propertyKey is the name of the decorated property. It could also be a Symbol, depending on how the property is defined on the object.
     propertyKey in the example is foo.    
     */
-    return (target: any, propertyKey: string | symbol) => {
-        // Store the definition result
 
-        
+export function DecoratedProperty(val: any = 0) {
+    let value: any;
+    return (target: any, propertyKey: string | symbol) => {
         const update = Reflect.defineProperty(
             target,
             propertyKey,
             {
-                configurable: true,
-                enumerable: true,
                 get: () => {
                     // Return the scoped value
                     return value;
