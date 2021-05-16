@@ -2,12 +2,12 @@ import { Component } from '@angular/core';
 import { Discount } from '../discount';
 
 @Component({
-  selector: 'app-root',
+  selector: 'festuc-root',
   templateUrl: './festuc.component.html'
 })
 
 export class FestucComponent {
-  public title = 'demo';
+  public title = 'decorators demo';
   public readonly discount = 20;
   private discountToApply: Discount = null;
 
@@ -24,7 +24,7 @@ export class FestucComponent {
     }
 
     public getLiteral(): string{
-     return this.discountToApply.getLiteral();
+     return "festuc " + this.discountToApply.getLiteral();
     }
  
 }

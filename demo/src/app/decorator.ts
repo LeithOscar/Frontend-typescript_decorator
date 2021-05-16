@@ -51,7 +51,7 @@ const isPromotionTime=()=>{
   para la función constructora viene como undefineden 
   Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
 */
-export  function decoratedFestucTimeParam(isYoung:boolean) {
+export  function decoratedFestucTimeParam() {
     
  return (target: Object, propertyKey: string, parameterIndex: number)=> {
     console.log('Nombre del metodo', propertyKey);

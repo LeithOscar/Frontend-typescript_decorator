@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import { decoratedFestucTimeParam , DecoratedProperty, methodTypeToApplyDecorated} from "./decorator";
 
 export class Discount{
@@ -8,27 +9,27 @@ export class Discount{
        Por sí mismos, su eficacia es limitada.
       El registro de datos de propiedades parece ser el mejor uso para un decorador de propiedades por sí solo.
     */
-    //@DecoratedProperty(25) // decorator for property
+    //@DecoratedProperty(40) // decorator for property
     defaultPercentage: number;
 
 
     //2
     // parameter decorator
     //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
-    //constructor(@decoratedFestucTimeParam(false) percentage:number) {
-    constructor( percentage:number) {
+    constructor(@decoratedFestucTimeParam() percentage:number) {
+    //constructor( percentage:number) {
         this.defaultPercentage = percentage;
        
     }
 
     public get getDefaultDiscount(): number{
-        //return  this.getDefault(Discount,undefined,0);
-        return this.defaultPercentage;
+        return  this.getDefault(Discount,undefined,0);
+        //return this.defaultPercentage;
     }
 
     //@methodTypeToApplyDecorated("%")
     public getLiteral(): string {
-      return  " pistachio discount";
+      return  "discount";
     }
 
 
