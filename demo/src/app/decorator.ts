@@ -1,12 +1,12 @@
 import "reflect-metadata";
 
-    /*
-    target: any
-    target is the object that owns the decorated property. target in the example is TargetDemo.
-    propertyKey: string | symbol
-    propertyKey is the name of the decorated property. It could also be a Symbol, depending on how the property is defined on the object.
-    propertyKey in the example is foo.    
-    */
+/*
+target: any
+target is the object that owns the decorated property. target in the example is TargetDemo.
+propertyKey: string | symbol
+propertyKey is the name of the decorated property. It could also be a Symbol, depending on how the property is defined on the object.
+propertyKey in the example is foo.    
+*/
 
 export function DecoratedProperty(val: any = 0) {
     let value: any;
@@ -48,8 +48,8 @@ const isPromotionTime=()=>{
 
 
 /*
-  para la función constructora viene como undefineden 
-  Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
+para la función constructora viene como undefineden 
+Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
 */
 export  function decoratedFestucTimeParam() {
     
@@ -93,9 +93,10 @@ export function methodTypeToApplyDecorated(txt:string)
 // decoradores de clase
  export function Bienvenida(){
     return function(target:Function){
-      target.prototype.hello = function():void{
-        console.log("Tienes cupones de descuento!!")
-      }
+    //   target.prototype.hello = function():void{
+    //     console.log("Tienes cupones de descuento!!")
+    //   }
+    alert("Tienes cupones de descuento!!");
     }
 }
 

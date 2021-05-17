@@ -1,4 +1,15 @@
-import "reflect-metadata";
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.DecoratedProperty = DecoratedProperty;
+exports.decoratedFestucTimeParam = decoratedFestucTimeParam;
+exports.methodTypeToApplyDecorated = methodTypeToApplyDecorated;
+exports.Bienvenida = Bienvenida;
+
+require("reflect-metadata");
+
 /*
 target: any
 target is the object that owns the decorated property. target in the example is TargetDemo.
@@ -6,8 +17,7 @@ propertyKey: string | symbol
 propertyKey is the name of the decorated property. It could also be a Symbol, depending on how the property is defined on the object.
 propertyKey in the example is foo.    
 */
-
-export function DecoratedProperty(val = 0) {
+function DecoratedProperty(val = 0) {
   let value;
   return (target, propertyKey) => {
     const update = Reflect.defineProperty(target, propertyKey, {
@@ -42,7 +52,7 @@ const isPromotionTime = () => {
 */
 
 
-export function decoratedFestucTimeParam() {
+function decoratedFestucTimeParam() {
   return (target, propertyKey, parameterIndex) => {
     console.log('Nombre del metodo', propertyKey);
     console.log('Clase', target);
@@ -68,7 +78,7 @@ const isSeason = () => {
 /* Un ejemplo sería, por ejemplo setar la version 'v'...*/
 
 
-export function methodTypeToApplyDecorated(txt) {
+function methodTypeToApplyDecorated(txt) {
   return function (target, propertyKey, descriptor) {
     console.log('Nombre del metodo', propertyKey);
     console.log('Clase', target);
@@ -81,7 +91,8 @@ export function methodTypeToApplyDecorated(txt) {
   };
 } // decoradores de clase
 
-export function Bienvenida() {
+
+function Bienvenida() {
   return function (target) {
     target.prototype.hello = function () {
       console.log("Tienes cupones de descuento!!");

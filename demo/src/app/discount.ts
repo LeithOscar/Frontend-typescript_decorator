@@ -1,7 +1,6 @@
 import "reflect-metadata";
 import { decoratedFestucTimeParam , DecoratedProperty, methodTypeToApplyDecorated, Bienvenida} from "./decorator";
 
-
 @Bienvenida()
 export class Discount{
 
@@ -18,8 +17,8 @@ export class Discount{
     //2
     // parameter decorator
     //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
-    constructor(@decoratedFestucTimeParam() percentage:number) {
-    //constructor( percentage:number) {
+    //constructor(@decoratedFestucTimeParam() percentage:number) {
+    constructor( percentage:number) {
         this.defaultPercentage = percentage;
     }
 
@@ -28,7 +27,7 @@ export class Discount{
         //return this.defaultPercentage;
     }
 
-    //@methodTypeToApplyDecorated("%")
+    //@methodTypeToApplyDecorated("€")
     public getLiteral(): string {
       return  "discount";
     }

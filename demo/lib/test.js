@@ -1,9 +1,14 @@
+"use strict";
+
+require("zone.js/dist/zone-testing");
+
+var _testing = require("@angular/core/testing");
+
+var _testing2 = require("@angular/platform-browser-dynamic/testing");
+
 // This file is required by karma.conf.js and loads recursively all the .spec and framework files
-import 'zone.js/dist/zone-testing';
-import { getTestBed } from '@angular/core/testing';
-import { BrowserDynamicTestingModule, platformBrowserDynamicTesting } from '@angular/platform-browser-dynamic/testing';
 // First, initialize the Angular testing environment.
-getTestBed().initTestEnvironment(BrowserDynamicTestingModule, platformBrowserDynamicTesting()); // Then we find all the tests.
+(0, _testing.getTestBed)().initTestEnvironment(_testing2.BrowserDynamicTestingModule, (0, _testing2.platformBrowserDynamicTesting)()); // Then we find all the tests.
 
 const context = require.context('./', true, /\.spec\.ts$/); // And load the modules.
 

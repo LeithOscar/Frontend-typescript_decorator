@@ -1,8 +1,19 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.Discount = void 0;
+
+require("reflect-metadata");
+
+var _decorator = require("./decorator");
+
 var _dec, _class;
 
-import "reflect-metadata";
-import { decoratedFestucTimeParam, Bienvenida } from "./decorator";
-export let Discount = (_dec = Bienvenida(), _dec(_class = class Discount {
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+let Discount = (_dec = (0, _decorator.Bienvenida)(), _dec(_class = class Discount {
   //1
 
   /*Property decorators are very similar to parameter decorators in that they're only able to observe declarations*/
@@ -15,8 +26,10 @@ export let Discount = (_dec = Bienvenida(), _dec(_class = class Discount {
   //2
   // parameter decorator
   //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
-  constructor(@decoratedFestucTimeParam()
+  constructor(@(0, _decorator.decoratedFestucTimeParam)()
   percentage) {
+    _defineProperty(this, "defaultPercentage", void 0);
+
     //constructor( percentage:number) {
     this.defaultPercentage = percentage;
   }
@@ -37,3 +50,4 @@ export let Discount = (_dec = Bienvenida(), _dec(_class = class Discount {
   }
 
 }) || _class);
+exports.Discount = Discount;

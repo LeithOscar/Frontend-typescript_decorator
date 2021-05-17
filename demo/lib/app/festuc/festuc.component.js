@@ -1,18 +1,32 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.FestucComponent = void 0;
+
+var _core = require("@angular/core");
+
+var _discount = require("../discount");
+
 var _dec, _class;
 
-import { Component } from '@angular/core';
-import { Discount } from '../discount';
-export let FestucComponent = (_dec = Component({
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+let FestucComponent = (_dec = (0, _core.Component)({
   selector: 'festuc-root',
   templateUrl: './festuc.component.html'
 }), _dec(_class = class FestucComponent {
-  title = 'decorators demo';
-  discount = 20;
-  discountToApply = null;
-  buyFestuc = 'https://www.amazon.es/s?k=pistachos&hvadid=80401819697355&hvbmt=bp&hvdev=c&hvqmt=p&tag=bingamazonest-21&ref=pd_sl_hb6wnxihe_p';
-
   constructor() {
-    this.discountToApply = new Discount(this.discount);
+    _defineProperty(this, "title", 'decorators demo');
+
+    _defineProperty(this, "discount", 20);
+
+    _defineProperty(this, "discountToApply", null);
+
+    _defineProperty(this, "buyFestuc", 'https://www.amazon.es/s?k=pistachos&hvadid=80401819697355&hvbmt=bp&hvdev=c&hvqmt=p&tag=bingamazonest-21&ref=pd_sl_hb6wnxihe_p');
+
+    this.discountToApply = new _discount.Discount(this.discount);
     this.discountToApply.hello();
   }
 
@@ -25,3 +39,4 @@ export let FestucComponent = (_dec = Component({
   }
 
 }) || _class);
+exports.FestucComponent = FestucComponent;
