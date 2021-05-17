@@ -2,7 +2,8 @@
   "name": "demo",
   "version": "0.0.0",
   "scripts": {
-    "build": "babel ./src --out-dir lib --extensions .ts"
+    "build": "babel ./src --out-dir lib --extensions .ts",
+    "test": "ng test --watch"
   },
   "private": true,
   "dependencies": {
