@@ -90,6 +90,14 @@ export function methodTypeToApplyDecorated(txt:string)
       }; 
 }
 
+// decoradores de clase
+ export function Bienvenida(){
+    return function(target:Function){
+      target.prototype.hello = function():void{
+        console.log("Tienes cupones de descuento!!")
+      }
+    }
+}
 
 
 

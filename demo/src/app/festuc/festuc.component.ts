@@ -6,6 +6,7 @@ import { Discount } from '../discount';
   templateUrl: './festuc.component.html'
 })
 
+
 export class FestucComponent {
   public title = 'decorators demo';
   public readonly discount = 20;
@@ -17,6 +18,7 @@ export class FestucComponent {
 
   constructor() {    
       this.discountToApply = new Discount(this.discount);
+      //this.discountToApply.hello();
     }
 
     public getDefaultDiscount(): number {
@@ -26,5 +28,7 @@ export class FestucComponent {
     public getLiteral(): string{
      return "festuc " + this.discountToApply.getLiteral();
     }
+
+    
  
 }

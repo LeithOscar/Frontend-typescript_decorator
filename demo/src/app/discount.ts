@@ -1,6 +1,8 @@
 import "reflect-metadata";
-import { decoratedFestucTimeParam , DecoratedProperty, methodTypeToApplyDecorated} from "./decorator";
+import { decoratedFestucTimeParam , DecoratedProperty, methodTypeToApplyDecorated, Bienvenida} from "./decorator";
 
+
+@Bienvenida()
 export class Discount{
 
     //1
@@ -19,7 +21,6 @@ export class Discount{
     constructor(@decoratedFestucTimeParam() percentage:number) {
     //constructor( percentage:number) {
         this.defaultPercentage = percentage;
-       
     }
 
     public get getDefaultDiscount(): number{
