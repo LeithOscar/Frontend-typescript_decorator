@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { FestucComponent } from './festuc/festuc.component';
 @NgModule({
@@ -7,7 +9,9 @@ import { FestucComponent } from './festuc/festuc.component';
     FestucComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    CommonModule
   ],
   providers: [],
   bootstrap: [FestucComponent]

@@ -336,11 +336,22 @@
     </div>
     <div class="row">
     <div class="col-md-6">
-       <img id="festucImg" style="width: 100px; height: 100px;" src="https://img1.etsystatic.com/033/0/6779905/il_570xN.638763697_fz0v.jpg"  class="img-fluid" >
+       <img id="festucImg" style="width: 100px; height: 100px;"
+        src="https://tse1.mm.bing.net/th?id=OIP.t8usjLa-8ZFp_i4JgCBKewHaFj&pid=Api"  class="img-fluid" >
     </div>
     <div class="col-md-6" align="center">
       <a id="buyId" href="{{buyFestuc}}" target="_blank" >BUY NOW</a>
     </div>
+  </div>
+
+  
+</div>
+<div class="row" align="right">
+  <div class="col-md-6">
+     <input type="text" placeholder="Aplpy your cupon"  [(ngModel)]="cupon"  (blur)="applyCupon()" />
+  </div>
+  <div *ngIf="hasValidCupon" class="col-md-6">
+    <label style="color: green;">OK</label>
   </div>
 </div>
 
