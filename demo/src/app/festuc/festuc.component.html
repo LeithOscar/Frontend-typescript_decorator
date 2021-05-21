@@ -331,6 +331,7 @@
 
 <!--DEMO-->
 <div class="row" align="center">
+  
    <div class="col-md-6">
       <h1> {{ getDefaultDiscount()}} {{getLiteral()}}</h1>
     </div>
@@ -352,6 +353,7 @@
   </div>
   <div *ngIf="hasValidCupon" class="col-md-6">
     <label style="color: green;">OK</label>
+    {{discountEntity().cuponApplied()}}
   </div>
 </div>
 

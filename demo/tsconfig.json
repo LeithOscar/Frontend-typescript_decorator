@@ -18,7 +18,9 @@
       "dom"
     ]
   },
+  "exclude": ["node_modules", "dist"],
   "angularCompilerOptions": {
-    "enableI18nLegacyMessageIdFormat": false
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": true
   }
 }

@@ -1,33 +1,19 @@
-"use strict";
+var _dec, _dec2, _dec3, _class;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.FestucComponent = void 0;
-
-var _core = require("@angular/core");
-
-var _discount = require("../discount");
-
-var _dec, _class;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-let FestucComponent = (_dec = (0, _core.Component)({
+import { Component } from '@angular/core';
+import { Discount } from '../discount';
+export let FestucComponent = (_dec = Component({
   selector: 'festuc-root',
   templateUrl: './festuc.component.html'
-}), _dec(_class = class FestucComponent {
+}), _dec2 = Reflect.metadata("design:type", Function), _dec3 = Reflect.metadata("design:paramtypes", []), _dec(_class = _dec2(_class = _dec3(_class = class FestucComponent {
   constructor() {
-    _defineProperty(this, "title", 'decorators demo');
-
-    _defineProperty(this, "discount", 20);
-
-    _defineProperty(this, "discountToApply", null);
-
-    _defineProperty(this, "buyFestuc", 'https://www.amazon.es/s?k=pistachos&hvadid=80401819697355&hvbmt=bp&hvdev=c&hvqmt=p&tag=bingamazonest-21&ref=pd_sl_hb6wnxihe_p');
-
-    this.discountToApply = new _discount.Discount(this.discount);
-    this.discountToApply.hello();
+    this.discountToApply = null;
+    this.product = 'Festuc ';
+    this.cupon = '';
+    this.discount = 20;
+    this.buyFestuc = 'https://www.amazon.es/s?k=pistachos&hvadid=80401819697355&hvbmt=bp&hvdev=c&hvqmt=p&tag=bingamazonest-21&ref=pd_sl_hb6wnxihe_p';
+    this.hasValidCupon = false;
+    this.discountToApply = new Discount(this.discount);
   }
 
   getDefaultDiscount() {
@@ -35,8 +21,11 @@ let FestucComponent = (_dec = (0, _core.Component)({
   }
 
   getLiteral() {
-    return "festuc " + this.discountToApply.getLiteral();
+    return this.product + this.discountToApply.getLiteral();
   }
 
-}) || _class);
-exports.FestucComponent = FestucComponent;
+  applyCupon() {
+    this.hasValidCupon = this.discountToApply.isValidCupon(this.cupon);
+  }
+
+}) || _class) || _class) || _class);

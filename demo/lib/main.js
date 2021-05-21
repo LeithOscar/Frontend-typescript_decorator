@@ -1,15 +1,10 @@
-"use strict";
+import { enableProdMode } from '@angular/core';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { AppModule } from './app/app.module';
+import { environment } from './environments/environment';
 
-var _core = require("@angular/core");
-
-var _platformBrowserDynamic = require("@angular/platform-browser-dynamic");
-
-var _app = require("./app/app.module");
-
-var _environment = require("./environments/environment");
-
-if (_environment.environment.production) {
-  (0, _core.enableProdMode)();
+if (environment.production) {
+  enableProdMode();
 }
 
-(0, _platformBrowserDynamic.platformBrowserDynamic)().bootstrapModule(_app.AppModule).catch(err => console.error(err));
+platformBrowserDynamic().bootstrapModule(AppModule).catch(err => console.error(err));

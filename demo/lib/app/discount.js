@@ -1,46 +1,33 @@
-"use strict";
+var _dec, _dec2, _class;
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.Discount = void 0;
-
-require("reflect-metadata");
-
-var _decorator = require("./decorator");
-
-var _dec, _class;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-let Discount = (_dec = (0, _decorator.Bienvenida)(), _dec(_class = class Discount {
+import 'reflect-metadata';
+import { Bienvenida } from './decorator';
+export let Discount = (_dec = Reflect.metadata("design:type", Function), _dec2 = Reflect.metadata("design:paramtypes", [Number]), Bienvenida(_class = _dec(_class = _dec2(_class = class Discount {
   //1
 
   /*Property decorators are very similar to parameter decorators in that they're only able to observe declarations*/
 
   /* Los decoradores de propiedades se pueden utilizar junto con otros decoradores para definir información adicional sobre la propiedad. 
-     Por sí mismos, su eficacia es limitada.
-    El registro de datos de propiedades parece ser el mejor uso para un decorador de propiedades por sí solo.
-  */
+       Por sí mismos, su eficacia es limitada.
+      El registro de datos de propiedades parece ser el mejor uso para un decorador de propiedades por sí solo.
+    */
   //@DecoratedProperty(40) // decorator for property
   //2
   // parameter decorator
   //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
-  constructor(@(0, _decorator.decoratedFestucTimeParam)()
-  percentage) {
-    _defineProperty(this, "defaultPercentage", void 0);
-
-    //constructor( percentage:number) {
+  //constructor(@decoratedFestucTimeParam() percentage:number) {
+  constructor(percentage) {
+    this.defaultPercentage = void 0;
     this.defaultPercentage = percentage;
   }
 
   get getDefaultDiscount() {
     return this.getDefault(Discount, undefined, 0); //return this.defaultPercentage;
-  } //@methodTypeToApplyDecorated("%")
+  } //@methodTypeToApplyDecorated("€")
 
 
   getLiteral() {
-    return "discount";
+    return 'discount';
   }
   /*-- lo unico que me queda por resolver*/
 
@@ -49,5 +36,8 @@ let Discount = (_dec = (0, _decorator.Bienvenida)(), _dec(_class = class Discoun
     return Reflect.getMetadata(`case_${index}`, target, name) === undefined ? this.defaultPercentage : Reflect.getMetadata(`case_${index}`, target, name);
   }
 
-}) || _class);
-exports.Discount = Discount;
+  isValidCupon(cupon) {
+    return cupon.length > 5;
+  }
+
+}) || _class) || _class) || _class);

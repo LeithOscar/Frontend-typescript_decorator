@@ -90,14 +90,31 @@ export function methodTypeToApplyDecorated(txt:string)
       }; 
 }
 
-// decoradores de clase
- export function Bienvenida(){
-    return function(target:Function){
-    //   target.prototype.hello = function():void{
-    //     console.log("Tienes cupones de descuento!!")
-    //   }
-    alert("Tienes cupones de descuento!!");
-    }
+// // decoradores de clase
+//  export function Bienvenida(){
+//     return function(target:Function){
+//     //   target.prototype.hello = function():void{
+//     //     console.log("Tienes cupones de descuento!!")
+//     //   }
+//     alert("Tienes cupones de descuento!!");
+//     }
+// }
+
+/**
+ * The class decorator can be used to override the constructor function of a class.
+ *
+ * @param target the class being decorated
+ * @return A new constructor producing an identical structure
+ */
+ export function cuponApplied<TFunction extends Function>(target: TFunction): TFunction {
+    let newConstructor = function () {
+        target.apply(this);
+        this.cuponApplied = ()=>{return alert("¡¡Your coupon has been applied!!");}
+    };
+
+    newConstructor.prototype = target.prototype;
+
+    return <any> newConstructor;
 }
 
 

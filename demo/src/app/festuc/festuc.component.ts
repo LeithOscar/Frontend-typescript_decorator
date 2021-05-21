@@ -32,4 +32,6 @@ export class FestucComponent {
     public applyCupon():void{
        this.hasValidCupon = this.discountToApply.isValidCupon(this.cupon);
     }
+
+    public discountEntity():Discount{ return this.discountToApply;}
 }

@@ -1,10 +1,3 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.environment = void 0;
-const environment = {
+export const environment = {
   production: true
 };
-exports.environment = environment;

@@ -1,12 +1,12 @@
 import 'reflect-metadata';
 import {
+  cuponApplied,
   decoratedFestucTimeParam,
   DecoratedProperty,
-  methodTypeToApplyDecorated,
-  Bienvenida,
+  methodTypeToApplyDecorated
 } from './decorator';
 
-@Bienvenida()
+@cuponApplied
 export class Discount {
   //1
   /*Property decorators are very similar to parameter decorators in that they're only able to observe declarations*/
@@ -22,12 +22,13 @@ export class Discount {
   //no sé porque no es capaz de enviar el 'name' de la propiedad, fase experiemntal
   //constructor(@decoratedFestucTimeParam() percentage:number) {
   constructor(percentage: number) {
-    this.defaultPercentage = percentage;
+   this.defaultPercentage = percentage;
   }
 
   public get getDefaultDiscount(): number {
     return this.getDefault(Discount, undefined, 0);
-    //return this.defaultPercentage;
+  
+    
   }
 
   //@methodTypeToApplyDecorated("€")
@@ -46,3 +47,4 @@ export class Discount {
     return cupon.length > 5;
   }
 }
+

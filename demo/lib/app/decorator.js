@@ -1,15 +1,4 @@
-"use strict";
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.DecoratedProperty = DecoratedProperty;
-exports.decoratedFestucTimeParam = decoratedFestucTimeParam;
-exports.methodTypeToApplyDecorated = methodTypeToApplyDecorated;
-exports.Bienvenida = Bienvenida;
-
-require("reflect-metadata");
-
+import "reflect-metadata";
 /*
 target: any
 target is the object that owns the decorated property. target in the example is TargetDemo.
@@ -17,7 +6,8 @@ propertyKey: string | symbol
 propertyKey is the name of the decorated property. It could also be a Symbol, depending on how the property is defined on the object.
 propertyKey in the example is foo.    
 */
-function DecoratedProperty(val = 0) {
+
+export function DecoratedProperty(val = 0) {
   let value;
   return (target, propertyKey) => {
     const update = Reflect.defineProperty(target, propertyKey, {
@@ -47,12 +37,12 @@ const isPromotionTime = () => {
   return today >= startSeason && today <= endSeason ? true : false;
 };
 /*
-  para la función constructora viene como undefineden 
-  Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
+para la función constructora viene como undefineden 
+Usando el index argumento, estamos almacenando un valor de metadatos para cada parámetro. 
 */
 
 
-function decoratedFestucTimeParam() {
+export function decoratedFestucTimeParam() {
   return (target, propertyKey, parameterIndex) => {
     console.log('Nombre del metodo', propertyKey);
     console.log('Clase', target);
@@ -78,7 +68,7 @@ const isSeason = () => {
 /* Un ejemplo sería, por ejemplo setar la version 'v'...*/
 
 
-function methodTypeToApplyDecorated(txt) {
+export function methodTypeToApplyDecorated(txt) {
   return function (target, propertyKey, descriptor) {
     console.log('Nombre del metodo', propertyKey);
     console.log('Clase', target);
@@ -89,13 +79,29 @@ function methodTypeToApplyDecorated(txt) {
       value: () => `${txt + " "}${descriptor.value()}`
     };
   };
-} // decoradores de clase
+} // // decoradores de clase
+//  export function Bienvenida(){
+//     return function(target:Function){
+//     //   target.prototype.hello = function():void{
+//     //     console.log("Tienes cupones de descuento!!")
+//     //   }
+//     alert("Tienes cupones de descuento!!");
+//     }
+// }
 
+/**
+ * The class decorator can be used to override the constructor function of a class.
+ *
+ * @param target the class being decorated
+ * @return A new constructor producing an identical structure
+ */
 
-function Bienvenida() {
-  return function (target) {
-    target.prototype.hello = function () {
-      console.log("Tienes cupones de descuento!!");
-    };
+export function Bienvenida(target) {
+  let newConstructor = function () {
+    target.apply(this);
+    this.hello = 'World';
   };
+
+  newConstructor.prototype = target.prototype;
+  return newConstructor;
 }
